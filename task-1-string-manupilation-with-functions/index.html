@@ -10,25 +10,26 @@
         </style>
         <script src="index.js"></script>
     </head>
-    <body>
+    <body class=" container-lg my-5">
         <header>
-            <h1>Flexible String Manipulation with Functions</h1>
+            <h1 class="fs-1 my-5 text-center">Flexible String Manipulation with Functions</h1>
         </header>
         <main>
-            <form action="" id="my_form">
+            <form action="action-page.php" id="my_form" class="lead">
                 <div>
-                    <label for="first_name">Enter your first name: </label>
-                    <input type="text" name="first_name" id="first_name" required placeholder="John">
+                    <label for="first_name" class="d-block my-2">Enter your first name: </label>
+                    <input type="text" name="first_name" id="first_name" class="d-block my-2 p-2 border rounded border-black" required placeholder="John">
                 </div>
                 <div>
-                    <label for="last_name">Enter your last name: </label>
-                    <input type="text" name="last_name" id="last_name" required placeholder="Doe">
+                    <label for="last_name" class="d-block my-2">Enter your last name: </label>
+                    <input type="text" name="last_name" id="last_name"  class="d-block my-2 p-2 border rounded border-black" required placeholder="Doe">
                 </div>
                 <div>
-                    <button type="button" id="my_button" form="my_form">Submit</button>
+                    <button type="button" id="my_button" form="my_form" class="d-block my-4 btn btn-outline-success border rounded border-success" title="Click to submit">Submit</button>
                 </div>
                 <p id="greeting"></p>
                 <p id="name_initials"></p>
+                <small id="warning_message"></small>
             </form>
         </main>
     </body>
