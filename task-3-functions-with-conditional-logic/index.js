@@ -12,6 +12,12 @@ document.getElementById("my_button").onclick = function () {
             return;
         }
 
+        if(isNaN(age)){
+
+            document.getElementById("warning_message").innerHTML = "Please enter a valid age.";
+            return;
+        }
+
         // Clear warning
         document.getElementById("warning_message").innerHTML = "";
 
