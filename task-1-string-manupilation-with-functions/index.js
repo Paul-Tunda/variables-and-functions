@@ -18,6 +18,12 @@ document.getElementById("my_button").onclick = function() {
         }
 
 
+        // Check if the user enters a numeric value
+        if (!isNaN(firstName) || !isNaN(lastName)) {
+            document.getElementById("warning_message").innerHTML= "Please enter a valid name.";
+            return;
+        }
+
 
         // Clear warning message if input is valid
         document.getElementById("warning_message").innerHTML = "";
