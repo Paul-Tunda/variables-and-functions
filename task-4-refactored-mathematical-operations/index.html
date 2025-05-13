@@ -10,8 +10,7 @@
     </style>
     <script src="index.js" defer></script>
   </head>
-  <body class=" container-lg my-5">
-  <header>
+  <body class=" container-lg my-5"><header>
     <h1 class="fs-1 my-5 text-center">Mathematical Operations with Multiple Parameters</h1>
   </header>
   <main>
@@ -25,6 +24,10 @@
         <input type="text" name="last_name" id="price"  class="d-block my-2 p-2 border rounded border-black" required placeholder="Enter the price per unit...">
       </div>
       <div>
+        <label for="discount" class="d-block my-2">Enter discount: </label>
+        <input type="text" name="discount" id="discount"  class="d-block my-2 p-2 w-50 border rounded border-black" placeholder="Enter the discount if applicable">
+      </div>
+      <div>
         <label for="tax_rate" class="d-block my-2">Total sales tax: </label>
         <input type="text" name="tax_rate" id="tax_rate"  class="d-block my-2 p-2 border rounded border-black" required placeholder="Enter the tax rate...">
       </div>
@@ -35,5 +38,6 @@
       <small id="warning_message" class="lead text-danger"></small>
     </form>
   </main>
+
   </body>
 </html>
