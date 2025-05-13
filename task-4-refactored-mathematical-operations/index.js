@@ -29,6 +29,7 @@ document.getElementById("my_button").onclick = function() {
         }
 
 
+
         // Clear warning message if input is valid
         document.getElementById("warning_message").innerHTML = "";
 
@@ -39,6 +40,15 @@ document.getElementById("my_button").onclick = function() {
         let price = Number(pricePerUnit);
         let discountAmount = Number(discount);
         let rate = Number(taxRate);
+
+
+        if(numberOfUnits <= 0 || pricePerUnit <= 0 || discount <= 0 || taxRate <= 0){
+            document.getElementById("warning_message").innerHTML = "Please enter a number greater than 0.";
+            return;
+        }
+
+        // Clear warning message if input is valid
+        document.getElementById("warning_message").innerHTML = "";
 
         let totalCost = 0;
 
@@ -60,7 +70,7 @@ document.getElementById("my_button").onclick = function() {
 
     function discountedTotalCost  (price, quantity, discount, taxRate) {
 
-        return (price - discount) * quantity * (1 + taxRate);
+        return (price - ((discount/100) * price)) * quantity * (1 + taxRate);
 
     }
 
