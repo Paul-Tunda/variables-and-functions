@@ -12,7 +12,7 @@ document.getElementById("my_button").onclick = function () {
             return;
         }
 
-        if(isNaN(age)){
+        if(isNaN(age) || age <= 0){
 
             document.getElementById("warning_message").innerHTML = "Please enter a valid age.";
             return;
@@ -39,6 +39,6 @@ document.getElementById("my_button").onclick = function () {
     }
 
     function isEmployed(employmentStatus) {
-        return employmentStatus.toLowerCase() === "employed";
+        return ["employed", "contract", "self-employed"].includes(employmentStatus.toLowerCase());
     }
 };
