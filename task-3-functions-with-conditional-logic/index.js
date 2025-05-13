@@ -1,45 +1,38 @@
-
-document.getElementById("my_button").onclick = function() {
+document.getElementById("my_button").onclick = function () {
 
     startProgram();
 
-    function startProgram(){
+    function startProgram() {
+        let age = document.getElementById("age").value.trim();
+        let employmentStatus = document.getElementById("employment_status").value.trim().toLowerCase();
 
-        // Get the values from the input fields
-        let numberOfUnits = document.getElementById("quantity").value.trim();
-        let pricePerUnit = document.getElementById("price").value.trim();
-        let taxRate = document.getElementById("tax_rate").value.trim();
-
-
-
-        // Check if the input fields are empty
-        if (numberOfUnits === "" || pricePerUnit === "" || taxRate === "") {
-            document.getElementById("warning_message").innerHTML= "Please enter the required information.";
+        // Validate inputs
+        if (age === "" || employmentStatus === "") {
+            document.getElementById("warning_message").innerHTML = "Please enter the required information.";
             return;
         }
 
-
-
-        // Clear warning message if input is valid
+        // Clear warning
         document.getElementById("warning_message").innerHTML = "";
 
+        let applicantAge = Number(age);
+        let isUserEmployed = isEmployed(employmentStatus);
 
-
-        // Capitalize the first letter of each name
-        let quantity = Number(numberOfUnits);
-        let price = Number(pricePerUnit);
-        let rate = Number(taxRate);
-
-        // Format the full name and displaying name initials
-        let totalCost = calculateTotalCost(price, quantity, rate);
-        document.getElementById("total_cost").innerHTML = `Your total cost is $${totalCost}`;
+        document.getElementById("eligibility").innerHTML = checkEligibility(applicantAge, isUserEmployed);
 
     }
 
-    function calculateTotalCost  (price, quantity, taxRate) {
-
-        return price * quantity * (1 + taxRate);
-
+    function checkEligibility(age, isEmployed) {
+        if (age >= 18 && isEmployed) {
+            return "You are eligible for the program.";
+        } else if (age >= 18 && !isEmployed) {
+            return "You are tentatively eligible for the program.";
+        } else {
+            return "You are not eligible for the program.";
+        }
     }
 
-}
+    function isEmployed(employmentStatus) {
+        return employmentStatus.toLowerCase() === "employed";
+    }
+};
