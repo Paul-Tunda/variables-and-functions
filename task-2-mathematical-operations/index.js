@@ -6,13 +6,14 @@ document.getElementById("my_button").onclick = function() {
     function startProgram(){
 
         // Get the values from the input fields
-        let firstName = document.getElementById("first_name").value.trim();
-        let lastName = document.getElementById("last_name").value.trim();
+        let numberOfUnits = document.getElementById("quantity").value.trim();
+        let pricePerUnit = document.getElementById("price").value.trim();
+        let taxRate = document.getElementById("tax_rate").value.trim();
 
 
 
         // Check if the input fields are empty
-        if (firstName === "" || lastName === "") {
+        if (numberOfUnits === "" || pricePerUnit === "" || taxRate === "") {
             document.getElementById("warning_message").innerHTML= "Please enter the required information.";
             return;
         }
@@ -25,13 +26,13 @@ document.getElementById("my_button").onclick = function() {
 
 
         // Capitalize the first letter of each name
-        let name1 = firstName.charAt(0).toUpperCase().concat(firstName.slice(1));
-        let name2 = lastName.charAt(0).toUpperCase().concat(lastName.slice(1));
+        let quantity = Number(numberOfUnits);
+        let price = Number(pricePerUnit);
+        let rate = Number(taxRate);
 
         // Format the full name and displaying name initials
-        let fullName = formatFullName(name1, name2);
-        document.getElementById("greeting").innerHTML = `Nice to have you here, ${fullName}!`;
-        document.getElementById("name_initials").innerHTML = `Initials: ${firstName.charAt(0).toUpperCase()}${lastName.charAt(0).toUpperCase()}`
+        let totalCost = calculateTotalCost(price, quantity, rate);
+        document.getElementById("total_cost").innerHTML = `Your total cost is $${totalCost}`;
 
     }
 
